@@ -1,71 +1,104 @@
 import React from 'react'
 import { BsArrowRightCircleFill } from 'react-icons/bs'
 
-
-
 const Hero = () => {
   return (
-    <div className="pt-24 min-h-screen flex flex-col text-white px-5">
-      <p className='md:mt-30 md:w-[40%] text-[.8rem]'>Bayerische Motoren Werke Aktiengesellschaft, trading as BMW Group, is a German multinational conglomerate manufacturer of luxury vehicles and motorcycles headquartered in Munich, Germany.</p>
+    <section className="pt-24 min-h-screen flex flex-col text-white px-5 sm:px-8 lg:px-16">
 
-      <h1 className='cloudecode py-15 text-5xl font-bold md:py-10 md:text-[7rem]'>CLOUDCO<span className='text-cyan-300'>DE</span></h1>
+      {/* Intro Text */}
+      <p className="mt-10 md:mt-24 w-full md:w-[70%] lg:w-[45%] text-[0.9rem] leading-relaxed">
+        Bayerische Motoren Werke Aktiengesellschaft, trading as BMW Group, is a German multinational conglomerate manufacturer of luxury vehicles and motorcycles headquartered in Munich, Germany.
+      </p>
 
-      <div className='flex items-center justify-left gap-3 mt-5'>
+      {/* Main Heading */}
+      <h1 className="cloudecode py-10 text-[2.8rem] sm:text-[4rem] md:text-[5rem] lg:text-[6rem] font-bold">
+        CLOUDCO<span className="text-cyan-300">DE</span>
+      </h1>
+
+      {/* Button Section */}
+      <div className="flex flex-wrap items-center gap-6 mt-4">
         <button>
-            <div className='flex bg-white justify-between items-center gap-5 px-1 py-2 rounded-[2rem] md:items-center md:justify-center'>
-
-                <p className='text-black font-bold text-[.9rem] ml-2.5 md:text-[1.1rem] md:ml-6'>Our Projects</p>
-                
-                <BsArrowRightCircleFill size={41} color='black' style={{display: 'inline-block', transform: 'rotate(-45deg)'}}/>
-                
-            </div> 
+          <div className="flex bg-white justify-between items-center gap-5 px-4 py-2 rounded-[2rem]">
+            <p className="text-black font-bold text-[0.9rem] md:text-[1.1rem]">
+              Our Projects
+            </p>
+            <BsArrowRightCircleFill
+              size={36}
+              color="black"
+              style={{ transform: 'rotate(-45deg)' }}
+            />
+          </div>
         </button>
 
-        <div className='w-[.1rem] h-[3.5rem] bg-white'></div>
-        <p className='text-neutral-800 font-bold'>Connect With Us</p>
-
+        <div className="hidden sm:block w-[0.1rem] h-[3.5rem] bg-white"></div>
+        <p className="text-neutral-300 font-bold">Connect With Us</p>
       </div>
 
+      {/* Testimonials */}
+      <div className="py-20">
 
-    <div className='py-20'>
+        <h2 className="text-center text-xl sm:text-2xl font-bold mb-12">
+          What our Clients Say
+        </h2>
 
-        <h1 className='text-center py-10 text-xl font-bold'>What our Clients Says</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-    <div className='flex flex-col md:flex-row items-center gap-6 justify-center'>
-
-        <div className='flex items-center justify-center gap-5 bg-neutral-600/40 py-5 px-3 rounded-2xl'>
-            <img src='img1.jpg' alt='img1' className='w-[5rem] h-[5rem] rounded-[50%]'/>
-
+          {/* Testimonial 1 */}
+          <div className="flex flex-col sm:flex-row items-start gap-6 bg-neutral-800/40 p-6 rounded-2xl">
+            <img
+              src="img1.jpg"
+              alt="Bellamy Blake"
+              className="w-20 h-20 rounded-full object-cover"
+            />
             <div>
-                <h1 className='font-bold text-[1rem]'>Bellamy Blake</h1>
-                <p className='text-[.7rem]'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, sit laborum! Itaque dolor harum nemo vitae et numquam obcaecati.</p>
+              <h3 className="font-bold text-lg mb-2">Bellamy Blake</h3>
+              <p className="text-sm text-neutral-300 leading-relaxed">
+                Working with CloudCode was an incredible experience. Their
+                technical precision and attention to detail transformed our
+                digital presence completely. The responsiveness and performance
+                improvements exceeded our expectations.
+              </p>
             </div>
+          </div>
+
+          {/* Testimonial 2 */}
+          <div className="flex flex-col sm:flex-row items-start gap-6 bg-neutral-800/40 p-6 rounded-2xl">
+            <img
+              src="img2.jpg"
+              alt="Clark Griffin"
+              className="w-20 h-20 rounded-full object-cover"
+            />
+            <div>
+              <h3 className="font-bold text-lg mb-2">Clark Griffin</h3>
+              <p className="text-sm text-neutral-300 leading-relaxed">
+                The team delivered a high-quality product on time. Their ability
+                to handle complex backend systems while maintaining a sleek and
+                modern UI makes them stand out in the industry.
+              </p>
+            </div>
+          </div>
+
+          {/* Testimonial 3 */}
+          <div className="flex flex-col sm:flex-row items-start gap-6 bg-neutral-800/40 p-6 rounded-2xl">
+            <img
+              src="img3.jpg"
+              alt="Raven Reyes"
+              className="w-20 h-20 rounded-full object-cover"
+            />
+            <div>
+              <h3 className="font-bold text-lg mb-2">Raven Reyes</h3>
+              <p className="text-sm text-neutral-300 leading-relaxed">
+                From concept to deployment, everything was handled with
+                professionalism. The UI animations, responsiveness, and clean
+                architecture make CloudCode a reliable long-term partner.
+              </p>
+            </div>
+          </div>
+
         </div>
 
-        <div className='flex items-center justify-center gap-5 bg-neutral-600/40 py-5 px-3 rounded-2xl'>
-            <img src='img2.jpg' alt='img1' className='w-[5rem] h-[5rem] rounded-[50%]'/>
-
-            <div>
-                <h1 className='font-bold text-[1rem]'>Clark Griffin</h1>
-                <p className='text-[.7rem]'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, sit laborum! Itaque dolor harum nemo vitae et numquam obcaecati.</p>
-            </div>
-        </div>
-
-        <div className='flex items-center justify-center gap-5 bg-neutral-600/40 py-5 px-3 rounded-2xl'>
-            <img src='img3.jpg' alt='img1' className='w-[5rem] h-[5rem] rounded-[50%]'/>
-
-            <div>
-                <h1 className='font-bold text-[1rem]'>Raven Rayes</h1>
-                <p className='text-[.7rem]'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, sit laborum! Itaque dolor harum nemo vitae et numquam obcaecati.</p>
-            </div>
-        </div>
-    </div>
-
-    </div>
-
-
-    
-    </div>
+      </div>
+    </section>
   )
 }
 

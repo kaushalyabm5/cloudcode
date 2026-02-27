@@ -10,7 +10,7 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <nav className='fixed w-full md:top-5 md:left-1/2 md:transform md:-translate-x-1/2 py-5 px-5 bg-[#D2D2D2]/30 backdrop-blur-lg flex justify-between items-center md:w-[90%] md:border-0 md:rounded-[7rem] md:mx-auto md:px-10'>
+    <nav className='fixed w-full md:top-5 md:left-1/2 md:transform md:-translate-x-1/2 py-5 px-5 bg-[#D2D2D2]/30 backdrop-blur-lg flex justify-between items-center md:w-[97%] md:border-0 md:rounded-[7rem] md:mx-auto md:px-10 z-50'>
       
       {/* Logo - Left */}
         <h1 className='logo text-white font-thin text-xl'>{"<CloudeCode/>"}</h1>

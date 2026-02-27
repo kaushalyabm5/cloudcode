@@ -1,4 +1,5 @@
 
+import About from './components/About';
 import CardCarousel from './components/CardCarousel';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
@@ -13,24 +14,24 @@ const App = () => {
 
   return (
     <SmoothScroll>
-    <div
-      className="
-        min-h-screen 
-        bg-cover 
-        bg-center
-        bg-fixed
-        bg-[url('/src/assets/hero-bg-mobile.png')]
-        md:bg-[url('/src/assets/hero-bg.png')]
-      "
-    >
-      <Navbar />
-      <Hero />
-      <Stats />
-      <Projects />
-      
-        
-    
-    </div>
+        <div
+  className="
+    min-h-screen
+    bg-cover
+    bg-center
+    bg-fixed
+    bg-[url('/src/assets/hero-bg-mobile.png')]
+    md:bg-[url('/src/assets/hero-bg.png')]
+  "
+>
+  <div className="max-w-[1400px] mx-auto">
+    <Navbar />
+    <Hero />
+    <About />
+    <Stats />
+    <Projects />
+  </div>
+</div>
     </SmoothScroll>
   )
 }

@@ -3,41 +3,41 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 
 const Stats = () => {
-  // To trigger count when visible
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.3,
   });
 
   const stats = [
-    { id: 1, label: "Projects Completed", value: 30, icon: "📁" },
-    { id: 30, label: "Countries Served", value: 5, icon: "😀" },
-    { id: 3, label: "Problems Solved", value: 25, icon: "🛠️" },
+    { id: 1, label: "Projects Completed", value: 30 },
+    { id: 2, label: "Countries Served", value: 5 },
+    { id: 3, label: "Problems Solved", value: 25 },
   ];
 
   return (
-    <section className="bg-neutral-800/70 py-16">
-      <div className="container mx-auto px-4">
+    <section className="bg-neutral-800/70 py-20 px-5 sm:px-8 lg:px-16">
+      <div className="max-w-[1400px] mx-auto">
+
         <div
           ref={ref}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center"
         >
           {stats.map((stat) => (
-            <div
-              key={stat.id}
-              className=" rounded-2xl p-6 transition-shadow duration-300"
-            >
-              
-              <div className="text-5xl font-bold text-white">
+            <div key={stat.id} className="p-8">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
                 {inView ? <CountUp end={stat.value} duration={2} /> : 0}+
               </div>
-              <div className="mt-2 text-neutral-200 font-medium">{stat.label}</div>
+              <div className="mt-4 text-neutral-300 text-base">
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Stats;
+export default Stats
