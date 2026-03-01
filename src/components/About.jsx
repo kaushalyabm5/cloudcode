@@ -16,7 +16,7 @@ const About = () => {
         />
 
         <div className="text-white">
-          <h1 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wide">
             About Us
           </h1>
 
@@ -43,8 +43,6 @@ const About = () => {
 
       </div>
 
-      <AboutPart2 />
-      <AboutPart3 />
 
     </section>
   )

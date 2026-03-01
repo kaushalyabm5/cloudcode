@@ -25,3 +25,26 @@ body{
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ===== Scrollbar Width ===== */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* ===== Track (Full Bar) ===== */
+::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, #6b6a6b, #ffffff);
+}
+
+/* ===== Thumb (Moving Part) ===== */
+::-webkit-scrollbar-thumb {
+  background: #effeff;
+  border-radius: 20px;
+  border: 2px solid #effeff; /* creates floating effect */
+  transition: all 0.3s ease;
+}
+
+/* ===== Hover Effect ===== */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff33ff;
+}

@@ -16,7 +16,7 @@ const Stats = () => {
   ];
 
   return (
-    <section className="bg-neutral-800/70 py-20 px-5 sm:px-8 lg:px-16">
+    <section className="bg-[#F9FAFB] py-20 px-5 sm:px-8 lg:px-16">
       <div className="max-w-[1400px] mx-auto">
 
         <div
@@ -25,10 +25,10 @@ const Stats = () => {
         >
           {stats.map((stat) => (
             <div key={stat.id} className="p-8">
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-800">
                 {inView ? <CountUp end={stat.value} duration={2} /> : 0}+
               </div>
-              <div className="mt-4 text-neutral-300 text-base">
+              <div className="mt-4 text-neutral-700 text-base">
                 {stat.label}
               </div>
             </div>

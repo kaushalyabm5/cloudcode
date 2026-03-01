@@ -3,7 +3,7 @@ import { FaCheck } from 'react-icons/fa6'
 
 const AboutPart3 = () => {
   return (
-    <div className='lg:flex-row flex py-15 flex-col gap-5 lg:gap-15 text-center items-center lg:items-start lg:text-left'>
+    <div className='lg:flex-row flex py-15 flex-col gap-5 lg:gap-15 text-center items-center lg:items-start lg:text-left px-5 sm:px-8 lg:px-16 bg-neutral-900'>
         <div className='flex flex-col w-full'>
         <h1 className='text-white font-bold text-[1.5rem] py-6 lg:hidden'>What You Get</h1>
         <img src='about1.jpg' alt='about-2' className='w-full sm:w-[70%] lg:w-[25rem] rounded-lg mt-6'/>

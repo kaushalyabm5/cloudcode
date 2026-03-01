@@ -1,97 +1,77 @@
-import React from 'react'
-import { BsArrowRightCircleFill } from 'react-icons/bs'
+import React from "react";
 
 const Hero = () => {
   return (
-    <section className="pt-24 min-h-screen flex flex-col text-white px-5 sm:px-8 lg:px-16">
+    <section className="relative w-full text-white flex items-center">
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 flex flex-col lg:min-h-screen">
 
-      {/* Intro Text */}
-      <p className="mt-10 md:mt-24 w-full md:w-[70%] lg:w-[45%] text-[0.9rem] leading-relaxed">
-        Bayerische Motoren Werke Aktiengesellschaft, trading as BMW Group, is a German multinational conglomerate manufacturer of luxury vehicles and motorcycles headquartered in Munich, Germany.
-      </p>
+        {/* TOP CONTENT */}
+        <div className="space-y-6 max-w-xl mt-12 md:mt-20">
 
-      {/* Main Heading */}
-      <h1 className="cloudecode py-10 text-[2.8rem] sm:text-[4rem] md:text-[5rem] lg:text-[6rem] font-bold">
-        CLOUDCO<span className="text-cyan-300">DE</span>
-      </h1>
-
-      {/* Button Section */}
-      <div className="flex flex-wrap items-center gap-6 mt-4">
-        <button>
-          <div className="flex bg-white justify-between items-center gap-5 px-4 py-2 rounded-[2rem]">
-            <p className="text-black font-bold text-[0.9rem] md:text-[1.1rem]">
-              Our Projects
+          {/* Small Description */}
+          <div className="flex items-start gap-3">
+            
+            <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+             CloudCode is a modern web development company that designs, develops, and deploys high-performance websites tailored to your business needs. We combine strategy, clean design, and scalable technology to create digital experiences that drive real growth.
             </p>
-            <BsArrowRightCircleFill
-              size={36}
-              color="black"
-              style={{ transform: 'rotate(-45deg)' }}
-            />
           </div>
-        </button>
 
-        <div className="hidden sm:block w-[0.1rem] h-[3.5rem] bg-white"></div>
-        <p className="text-neutral-300 font-bold">Connect With Us</p>
-      </div>
+          {/* Big Title */}
+          <h1 className="text-[2.8rem] sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-widest">
+            CLOU<span className="text-cyan-400">DC</span>ODE
+          </h1>
 
-      {/* Testimonials */}
-      <div className="py-20">
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-4 pt-4">
+            <button className="px-6 py-3 bg-white text-black rounded-full text-sm font-medium transition hover:scale-105 cursor-pointer">
+              Discover →
+            </button>
 
-        <h2 className="text-center text-xl sm:text-2xl font-bold mb-12">
-          What our Clients Say
-        </h2>
+            <button className="px-6 py-3 border border-white/40 rounded-full text-sm transition hover:bg-white/10 cursor-pointer">
+              Connect With Us
+            </button>
+          </div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* BOTTOM GLASS CARDS */}
+        <div className="mt-16 md:mt-20 lg:mt-28 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          {/* Testimonial 1 */}
-          <div className="flex flex-col sm:flex-row items-start gap-6 bg-neutral-800/40 p-6 rounded-2xl">
-            <img
-              src="img1.jpg"
-              alt="Bellamy Blake"
-              className="w-20 h-20 rounded-full object-cover"
-            />
-            <div>
-              <h3 className="font-bold text-lg mb-2">Bellamy Blake</h3>
-              <p className="text-sm text-neutral-300 leading-relaxed">
-                Working with CloudCode was an incredible experience. Their
-                technical precision and attention to detail transformed our
-                digital presence completely. The responsiveness and performance
-                improvements exceeded our expectations.
-              </p>
+          {/* Card 1 */}
+          <div className="bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/20 transition hover:scale-105">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-full bg-white/20"></div>
+              <div>
+                <h3 className="font-medium">Strategic Website Design</h3>
+                <p className="text-sm text-gray-300">
+                  Modern, conversion-focused designs that build trust and turn visitors into customers.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Testimonial 2 */}
-          <div className="flex flex-col sm:flex-row items-start gap-6 bg-neutral-800/40 p-6 rounded-2xl">
-            <img
-              src="img2.jpg"
-              alt="Clark Griffin"
-              className="w-20 h-20 rounded-full object-cover"
-            />
-            <div>
-              <h3 className="font-bold text-lg mb-2">Clark Griffin</h3>
-              <p className="text-sm text-neutral-300 leading-relaxed">
-                The team delivered a high-quality product on time. Their ability
-                to handle complex backend systems while maintaining a sleek and
-                modern UI makes them stand out in the industry.
-              </p>
+          {/* Card 2 */}
+          <div className="bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/20 transition hover:scale-105">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-full bg-white/20"></div>
+              <div>
+                <h3 className="font-medium">Custom Web Development</h3>
+                <p className="text-sm text-gray-300">
+                  Fast, scalable, and fully responsive websites tailored to your business goals.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Testimonial 3 */}
-          <div className="flex flex-col sm:flex-row items-start gap-6 bg-neutral-800/40 p-6 rounded-2xl">
-            <img
-              src="img3.jpg"
-              alt="Raven Reyes"
-              className="w-20 h-20 rounded-full object-cover"
-            />
-            <div>
-              <h3 className="font-bold text-lg mb-2">Raven Reyes</h3>
-              <p className="text-sm text-neutral-300 leading-relaxed">
-                From concept to deployment, everything was handled with
-                professionalism. The UI animations, responsiveness, and clean
-                architecture make CloudCode a reliable long-term partner.
-              </p>
+          {/* Card 3 */}
+          <div className="bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/20 transition hover:scale-105">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-full bg-white/20"></div>
+              <div>
+                <h3 className="font-medium">Launch & Growth Optimization</h3>
+                <p className="text-sm text-gray-300">
+                  Seamless deployment with performance and SEO foundations to drive real results.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -99,7 +79,7 @@ const Hero = () => {
 
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
