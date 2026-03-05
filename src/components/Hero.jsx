@@ -62,10 +62,11 @@ const Hero = () => {
       id="home"
       className="relative w-full text-white flex items-center overflow-hidden"
     >
+      
       {/* ===== Overlay (above bg image, below content) ===== */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(120,130,150,0.25),transparent_55%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1117]/40 via-[#0b1117]/60 to-[#0b1117]/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1117]/40 via-[#0b1117]/60 to-[#000000]" />
       </div>
 
       {/* ===== CONTENT WRAPPER ===== */}
@@ -84,7 +85,7 @@ const Hero = () => {
           </h1>
 
           <div className="buttons-animate flex flex-wrap gap-4 pt-4">
-            <a href="#discover">
+            <a href="#what-we-do">
               <button className="cursor-pointer px-6 py-3 
               
               bg-gradient-to-r from-[var(--primary-color)] to-white/30
@@ -105,22 +106,22 @@ const Hero = () => {
         {/* CARDS */}
         <div className="cards-wrapper mt-16 md:mt-20 lg:mt-28 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           
-          <div className="card-animate bg-[var(--primary-color)]/10 backdrop-blur-xl p-6 rounded-2xl border border-[var(--primary-color)]/40">
-            <h3 className="font-medium mb-2">Strategic Website Design</h3>
+          <div className="card-animate p-6 rounded-2xl border border-[var(--primary-color)]/10 bg-white/[0.04] backdrop-blur-xl">
+            <h3 className="font-medium mb-2 text-[var(--primary-color)]/40">Strategic Website Design</h3>
             <p className="text-sm text-gray-300">
               Modern, conversion-focused designs that build trust.
             </p>
           </div>
 
-          <div className="card-animate bg-[var(--primary-color)]/10 backdrop-blur-xl p-6 rounded-2xl border border-[var(--primary-color)]/40">
-            <h3 className="font-medium mb-2">Custom Web Development</h3>
+          <div className="card-animate p-6 rounded-2xl border border-[var(--primary-color)]/10 bg-white/[0.04] backdrop-blur-xl">
+            <h3 className="font-medium mb-2 text-[var(--primary-color)]/40">Custom Web Development</h3>
             <p className="text-sm text-gray-300">
               Fast, scalable, fully responsive websites.
             </p>
           </div>
 
-          <div className="card-animate bg-[var(--primary-color)]/10 backdrop-blur-xl p-6 rounded-2xl border border-[var(--primary-color)]/40">
-            <h3 className="font-medium mb-2">Launch & Growth Optimization</h3>
+          <div className="card-animate p-6 rounded-2xl border border-[var(--primary-color)]/10 bg-white/[0.04] backdrop-blur-xl">
+            <h3 className="font-medium mb-2 text-[var(--primary-color)]/40">Launch & Growth Optimization</h3>
             <p className="text-sm text-gray-300">
               Seamless deployment with SEO foundation.
             </p>

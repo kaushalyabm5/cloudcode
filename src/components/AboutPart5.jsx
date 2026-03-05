@@ -52,10 +52,11 @@ export default function AboutPart5() {
 
   return (
     <section ref={sectionRef} id="about" className="relative w-full min-h-[70vh] md:min-h-[80vh] bg-[#0b1117] overflow-hidden flex items-center justify-center lg:pt-20 lg:pb-15 px-4">
+      
       {/* Background glow */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_55%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-[var(--primary-color)]/1" />
       </div>
 
       {/* Top-right arrow */}

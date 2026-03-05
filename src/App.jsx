@@ -12,6 +12,8 @@ import SmoothScroll from './components/SmoothScroll';
 import StatPart2 from './components/StatPart2';
 
 import WhatWeDo from './components/WhatWeDo';
+import HowItWorks from './components/HowItWorks';
+import Testimonials from './components/Testimonials';
 
 
 const App = () => {
@@ -28,8 +30,8 @@ const App = () => {
     bg-center
     bg-fixed
     bg-blend-darken
-    bg-[url('/src/assets/hero-bg-mobile3.png')]
-    md:bg-[url('/src/assets/hero-bg11.png')]
+    bg-[url('/src/assets/hero-bg-mobile5.png')]
+    md:bg-[url('/src/assets/hero-bg-14.png')]
   "
 >
 
@@ -41,6 +43,8 @@ const App = () => {
     <AboutPart5 />
     <StatPart2 />
     <WhatWeDo />
+    <Testimonials />
+    <HowItWorks />
     <HeroCarousel />
     <Contact />
     <ScrollToTop />

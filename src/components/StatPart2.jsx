@@ -3,10 +3,10 @@ import CountUp from "react-countup";
 
 // ⚠️ IMPORTANT: your folder name is "assests"
 // Change filenames if needed
-import imgDeer from "../assets/statimg4.png";
-import imgSphere from "../assets/statImg1.jpeg";
-import imgBurst from "../assets/statImg2.jpeg";
-import imgExtra from "../assets/statImg3.jpeg";
+import img1 from "../assets/si1.png";
+import img2 from "../assets/si3.png";
+import img3 from "../assets/si4.png";
+import img4 from "../assets/sinew1.png";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -117,9 +117,13 @@ export default function StatPart2() {
 
   return (
     <section
+    id="stat"
       ref={sectionRef}
       className="w-full bg-black py-12 md:py-16 px-4 md:px-8"
     >
+
+      
+
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="grid md:grid-cols-2 gap-6 items-center mb-10">
@@ -152,11 +156,11 @@ export default function StatPart2() {
           />
 
           {/* Top images */}
-          <ImageCard src={imgDeer} />
-          <ImageCard src={imgSphere} />
+          <ImageCard src={img1} />
+          <ImageCard src={img2} />
 
           {/* NEW missing square */}
-          <ImageCard src={imgExtra} />
+          <ImageCard src={img3} />
 
           {/* Bottom left stat */}
           <StatCard
@@ -168,7 +172,7 @@ export default function StatPart2() {
 
           {/* Center big image */}
           <ImageCard
-            src={imgBurst}
+            src={img4}
             className="col-span-2 md:col-span-2 md:row-span-2"
           />
 

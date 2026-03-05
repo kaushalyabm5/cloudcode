@@ -48,7 +48,7 @@ const Contact = () => {
             <div className="space-y-4 text-gray-400 text-sm sm:text-base max-w-md">
               <p className="text-[var(--primary-color)]">cloudcodeorg@proton.me</p>
 
-              <p className="leading-relaxed">
+              <p className="leading-relaxed text-neutral-400">
                Reach out to discuss your project, and let us create a website that drives results and grows your business.
               </p>
             </div>
@@ -60,22 +60,22 @@ const Contact = () => {
           <div className="space-y-10">
 
             <div className="text-sm text-gray-300 space-y-1">
-              <p className="flex items-center gap-2.5"><FiPhone />+94 74 113 7308</p>
-              <p className="flex items-center gap-2.5"><FaWhatsapp />+94 72 877 9773</p>
+              <p className="flex items-center gap-2.5 text-[var(--primary-color)]"><FiPhone />+94 74 113 7308</p>
+              <p className="flex items-center gap-2.5 text-[var(--primary-color)]"><FaWhatsapp />+94 72 877 9773</p>
             </div>
 
             <div className="space-y-6 text-gray-400 text-sm leading-relaxed">
 
               <div>
                 <h3 className="text-white font-medium mb-2 flex items-center gap-2.5"><FaFacebook className="text-[1.3rem] text-[#1877F2]"/><a href="">FACEBOOK</a></h3>
-                <p>
+                <p className="text-[var(--primary-color)]/40">
                   Connect with us on Facebook for updates and inspiration.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-white font-medium mb-2 flex items-center gap-2.5"><FiMapPin className="text-[1.3rem] text-[var(--primary-color)]"/>SRI LANKA 🇱🇰</h3>
-                <p>
+                <p className="text-[var(--primary-color)]/40">
                   Located in Sri Lanka, delivering expert web solutions to grow your business.
                 </p>
               </div>

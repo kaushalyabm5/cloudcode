@@ -42,7 +42,7 @@ body{
 
 /* ===== Track (Full Bar) ===== */
 ::-webkit-scrollbar-track {
-  background: linear-gradient(to bottom, #6b6a6b, #ffffff);
+  background: linear-gradient(to bottom, #000000, #043602);
 }
 
 /* ===== Thumb (Moving Part) ===== */

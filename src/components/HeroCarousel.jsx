@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Projects from "./Projects";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -11,6 +11,8 @@ import projectImg2 from "../assets/projectimg2.png";
 import projectModal1 from "../assets/projectModal1.jpg";
 import projectModal2 from "../assets/projectModal2.jpg";
 import projectModal3 from "../assets/projectModal3.jpg";
+
+import Projects from "./Projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -146,56 +148,58 @@ export default function HeroCarousel() {
 
   return (
     <section ref={sectionRef} id="projects" className="relative w-full ">
-      <div className="relative w-full min-h-[75vh] overflow-hidden pb-20 pt-10">
-
         {/* Background Overlay (UNCHANGED) */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(120,130,150,0.25),transparent_55%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#000000]/30 via-[#0b1117]/60 to-[#000000]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#0b1117]/60 to-[#000000]" />
         </div>
+      
+     <div className="relative w-full overflow-hidden min-h-[75vh] pb-20 pt-40">
+  <Projects />
 
-        <Projects />
+  <AnimatePresence initial={false} mode="wait">
+    <motion.div
+      key={current}
+      initial={{ x: 300, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: -300, opacity: 0 }}
+      transition={{ duration: 0.7, ease: "easeInOut" }}
+      className="flex flex-col lg:flex-row w-full h-full"
+    >
+      {/* LEFT */}
+      <div className="w-full lg:w-[40%] flex items-center px-6 md:px-12 text-white space-y-6">
+        <div>
+          <h1 className="text-3xl md:text-5xl font-bold">{slides[current].title}</h1>
+          <p className="text-gray-300 mt-4">{slides[current].description}</p>
 
-        <div className="relative z-10 min-h-[75vh] flex flex-col lg:flex-row">
-
-          {/* LEFT */}
-          <div ref={Animation1Ref} className="w-full lg:w-[40%] flex items-center">
-            <div className="px-6 md:px-12 text-white space-y-6">
-              <h1 className="text-3xl md:text-5xl font-bold">
-                {slides[current].title}
-              </h1>
-
-              <p className="text-gray-300">
-                {slides[current].description}
-              </p>
-
-              <button
-                onClick={() => setIsOpen(true)}
-                className="px-6 py-3 bg-white text-[#000000] rounded font-medium hover:bg-neutral-200 transition"
-              >
-                View Project Details
-              </button>
-
-              <div className="flex gap-4 pt-4">
-                <button onClick={prevSlide} className="w-9 h-9 rounded-full border border-white/40">❮</button>
-                <button onClick={nextSlide} className="w-9 h-9 rounded-full border border-white/40">❯</button>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT IMAGE */}
-          <div ref={Animation2Ref} className="w-full lg:w-[60%] flex items-center mt-6 lg:mt-0">
-            <div className="w-full h-[90%] mx-4 md:mx-8 rounded-xl overflow-hidden shadow-lg">
-              <img
-                src={slides[current].image}
-                alt=""
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
+          <button
+            onClick={() => setIsOpen(true)}
+            className="cursor-pointer mt-6 px-6 py-3 bg-[var(--primary-color)] text-black rounded font-medium hover:bg-[var(--primary-color)]/50 transition"
+          >
+            View Project Details
+          </button>
         </div>
       </div>
+
+      {/* RIGHT IMAGE */}
+      <div className="w-full lg:w-[60%] flex items-center mt-6 lg:mt-0">
+        <div className="w-full h-[90%] mx-4 md:mx-8 rounded-xl overflow-hidden shadow-lg">
+          <img
+            src={slides[current].image}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </motion.div>
+  </AnimatePresence>
+
+  {/* ===== SLIDE NAVIGATION BUTTONS FIXED ===== */}
+  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-4 z-10">
+    <button onClick={prevSlide} className="cursor-pointer w-9 h-9 rounded-full border border-[var(--primary-color)] bg-[var(--primary-color)]/0 text-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-white">❮</button>
+    <button onClick={nextSlide} className="cursor-pointer w-9 h-9 rounded-full border border-[var(--primary-color)] text-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-white">❯</button>
+  </div>
+</div>
 
       {/* ================= MODAL ================= */}
       <AnimatePresence>
@@ -222,7 +226,7 @@ export default function HeroCarousel() {
               {/* CLOSE BUTTON */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full 
+                className="cursor-pointer absolute top-4 right-4 w-10 h-10 rounded-full 
                 border border-[var(--primary-color)]/30 
                 text-[var(--primary-color)] 
                 flex items-center justify-center

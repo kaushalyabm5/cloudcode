@@ -89,13 +89,13 @@ export default function WhatWeDo() {
   ];
 
   return (
-    <section ref={sectionRef} id="discover" className="relative w-full bg-[#0b1117]/0 overflow-hidden">
+    <section ref={sectionRef} id="what-we-do" className="relative w-full bg-[#0b1117]/0 overflow-hidden">
      
 
       {/* Background Overlay (UNCHANGED) */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(120,130,150,0.25),transparent_55%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#0b1117]/60 to-[#000000]/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#0b1117]/60 to-[#0b1117]/60" />
         </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">

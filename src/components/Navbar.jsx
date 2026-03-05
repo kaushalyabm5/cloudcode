@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
-import { FiHome, FiUser, FiFolder, FiMail } from "react-icons/fi";
+import React, { useEffect, useRef, useState } from "react";
+import { FiHome, FiUser, FiFolder, FiMail, FiPhone } from "react-icons/fi";
 
 const navItems = [
   { id: "home", label: "Home", icon: <FiHome size={20} /> },
   { id: "about", label: "About", icon: <FiUser size={20} /> },
+  { id: "how", label: "How It Works", icon: <FiMail size={20} /> },
   { id: "projects", label: "Projects", icon: <FiFolder size={20} /> },
-  { id: "contact", label: "Contact", icon: <FiMail size={20} /> },
+  { id: "contact", label: "Contact", icon: <FiPhone size={20} /> },
 ];
 
 export default function Navbar() {
@@ -13,59 +14,43 @@ export default function Navbar() {
   const [showTopBar, setShowTopBar] = useState(true);
   const lastScrollY = useRef(0);
 
-  /* ================= ACTIVE SECTION DETECTION (STABLE VERSION) ================= */
   useEffect(() => {
-  const handleScroll = () => {
-    const scrollPosition =
-      window.scrollY + window.innerHeight / 2;
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      const triggerLine = scrollY + window.innerHeight / 2;
 
-    let currentSection = "home";
+      let current = "home";
 
-    navItems.forEach((item) => {
-      const section = document.getElementById(item.id);
-      if (!section) return;
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const item = navItems[i];
+        const section = document.getElementById(item.id);
+        if (!section) continue;
 
-      const top = section.offsetTop;
-      const bottom = top + section.offsetHeight;
-
-      if (scrollPosition >= top && scrollPosition < bottom) {
-        currentSection = item.id;
-      }
-    });
-
-    // 🔥 Special case: bottom of page = contact
-    if (
-      window.innerHeight + window.scrollY >=
-      document.body.offsetHeight - 5
-    ) {
-      currentSection = "contact";
-    }
-
-    setActive(currentSection);
-  };
-
-  window.addEventListener("scroll", handleScroll);
-  handleScroll();
-
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
-  /* ================= MOBILE TOP BAR HIDE ON SCROLL ================= */
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.innerWidth >= 768) return;
-
-      if (window.scrollY > lastScrollY.current) {
-        setShowTopBar(false);
-      } else {
-        setShowTopBar(true);
+        const top = section.offsetTop;
+        if (triggerLine >= top) {
+          current = item.id;
+          break;
+        }
       }
 
-      lastScrollY.current = window.scrollY;
+      if (window.innerHeight + scrollY >= document.body.offsetHeight - 5) {
+        current = "contact";
+      }
+
+      setActive((prev) => (prev === current ? prev : current));
+
+      if (window.innerWidth < 768) {
+        const delta = scrollY - lastScrollY.current;
+        if (delta > 10) setShowTopBar(false);
+        if (delta < -10) setShowTopBar(true);
+        lastScrollY.current = scrollY;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -79,22 +64,31 @@ export default function Navbar() {
         <ul className="flex gap-12">
           {navItems.map((item) => (
             <li key={item.id}>
-              <a
-                href={`#${item.id}`}
-                className={`transition duration-300 ${
-                  active === item.id
-                    ? "text-[var(--primary-color)]"
-                    : "text-white hover:text-white/70"
-                }`}
-              >
-                {item.label}
-              </a>
+              {item.id === "contact" ? (
+                <a
+                  href={`#${item.id}`}
+                  className="px-6 py-2 rounded-full bg-black/60 text-white font-semibold transition-colors duration-300 hover:bg-[var(--primary-color)]/40"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <a
+                  href={`#${item.id}`}
+                  className={`transition-colors duration-300 ${
+                    active === item.id
+                      ? "text-[var(--primary-color)]"
+                      : "text-white hover:text-white/70"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
       </nav>
 
-      {/* ================= MOBILE TOP GLASS BAR ================= */}
+      {/* ================= MOBILE TOP BAR ================= */}
       <div
         className={`md:hidden fixed top-0 left-0 w-full h-12 backdrop-blur-xl bg-black/20 border-b border-white/10 z-40 transition-transform duration-300 ${
           showTopBar ? "translate-y-0" : "-translate-y-full"
@@ -106,24 +100,40 @@ export default function Navbar() {
       </div>
 
       {/* ================= MOBILE BOTTOM NAVBAR ================= */}
-      <nav className="md:hidden fixed bottom-5 left-1/2 -translate-x-1/2 w-[92%] backdrop-blur-2xl bg-white/5 border border-white/20 rounded-full px-5 py-3 flex justify-between items-center shadow-2xl z-50">
+      <nav className="md:hidden fixed bottom-5 left-1/2 -translate-x-1/2 w-[92%] backdrop-blur-2xl bg-white/5 border border-white/20 rounded-full px-4 py-3 flex justify-between items-center shadow-2xl z-50">
         {navItems.map((item) => {
           const isActive = active === item.id;
 
+          // Contact button
+          if (item.id === "contact") {
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="w-[88px] flex items-center justify-center gap-2 rounded-full px-4 py-2 bg-[var(--primary-color)]/40 text-white font-semibold transition-all duration-300 active:scale-95"
+              >
+                {item.icon}
+                <span className="text-sm font-medium"></span>
+              </a>
+            );
+          }
+
+          // Other nav items with active styles
           return (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`flex items-center justify-center transition-all duration-300 ${
-                isActive
-                  ? "bg-white/20 text-white px-4 py-2 rounded-full gap-2"
-                  : "text-white/60"
+              className={`w-[50px] h-[50px] flex flex-col items-center justify-center gap-1 rounded-full transition-all duration-300 active:scale-95 ${
+                isActive ? "bg-white/20 text-white" : "text-white/60"
               }`}
             >
-              {item.icon}
-              {isActive && (
-                <span className="text-sm font-medium">{item.label}</span>
-              )}
+              <span
+                className={`text-lg transition-transform duration-300 ${
+                  isActive ? "scale-125 text-[var(--primary-color)]" : ""
+                }`}
+              >
+                {item.icon}
+              </span>
             </a>
           );
         })}

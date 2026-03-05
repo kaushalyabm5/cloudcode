@@ -34,7 +34,7 @@ const Projects = () => {
 
       <div className="max-w-[1400px] mx-auto">
 
-        <h1 ref={AnimationRef} className="text-white text-[2.5rem] sm:text-[3rem] lg:text-[4.3rem] mb-6">
+        <h1 ref={AnimationRef} className="text-white text-[2.5rem] sm:text-[3rem] lg:text-[4.3rem] mb-15">
           OUR LATEST PROJECTS
         </h1>
 
