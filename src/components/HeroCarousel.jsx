@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 
 import projectImg1 from "../assets/projectimg1.png";
 import projectImg2 from "../assets/projectimg2.png";
+import projectImg3 from "../assets/projectimg3.png";
 
 import projectModal1 from "../assets/projectModal1.jpg";
 import projectModal2 from "../assets/projectModal2.jpg";
@@ -18,7 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const slides = [
   {
-    title: "THE WITCHER",
+    title: "Website for a Restaurant",
     description:
       "Geralt of Rivia, a solitary monster hunter, struggles to find his place in a world where people are often more wicked than beasts.",
     image: projectImg1,
@@ -35,7 +36,7 @@ const slides = [
     ],
   },
   {
-    title: "CYBER FUTURE",
+    title: "Website for a Photographer",
     description:
       "A dark futuristic world where technology controls everything and survival is the only rule.",
     image: projectImg2,
@@ -52,10 +53,10 @@ const slides = [
     ],
   },
   {
-    title: "DARK KINGDOM",
+    title: "Website for a Car Rental Service",
     description:
       "A fallen empire, rising warriors, and secrets buried deep in the shadows.",
-    image: projectImg1,
+    image: projectImg3,
     modalImage: projectModal3,
     technologies: ["Next.js", "TailwindCSS"],
     duration: "2 Weeks",
@@ -77,6 +78,7 @@ export default function HeroCarousel() {
   const sectionRef = useRef(null);
   const Animation1Ref = useRef(null);
   const Animation2Ref = useRef(null);
+  const Animation3Ref = useRef(null);
   const modalRef = useRef(null);
 
   useGSAP(() => {
@@ -93,6 +95,18 @@ export default function HeroCarousel() {
     });
 
     gsap.from(Animation2Ref.current, {
+      x: 100,
+      opacity: 0,
+      duration: 1.5,
+      delay: 1,
+      ease: "power3.in",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 75%",
+      },
+    });
+
+     gsap.from(Animation3Ref.current, {
       x: -100,
       opacity: 0,
       duration: 1.5,
@@ -147,7 +161,7 @@ export default function HeroCarousel() {
   };
 
   return (
-    <section ref={sectionRef} id="projects" className="relative w-full ">
+    <section ref={sectionRef} id="projects" className="relative w-full pb-25">
         {/* Background Overlay (UNCHANGED) */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(120,130,150,0.25),transparent_55%)]" />
@@ -167,14 +181,14 @@ export default function HeroCarousel() {
       className="flex flex-col lg:flex-row w-full h-full"
     >
       {/* LEFT */}
-      <div className="w-full lg:w-[40%] flex items-center px-6 md:px-12 text-white space-y-6">
+      <div ref={Animation2Ref} className="w-full lg:w-[40%] flex items-center px-6 md:px-12 text-white space-y-6">
         <div>
           <h1 className="text-3xl md:text-5xl font-bold">{slides[current].title}</h1>
           <p className="text-gray-300 mt-4">{slides[current].description}</p>
 
           <button
             onClick={() => setIsOpen(true)}
-            className="cursor-pointer mt-6 px-6 py-3 bg-[var(--primary-color)] text-black rounded font-medium hover:bg-[var(--primary-color)]/50 transition"
+            className="cursor-pointer mt-6 px-6 py-3 bg-[var(--primary-color)]/50 text-black rounded font-medium hover:bg-[var(--primary-color)]/60 transition"
           >
             View Project Details
           </button>
@@ -182,7 +196,7 @@ export default function HeroCarousel() {
       </div>
 
       {/* RIGHT IMAGE */}
-      <div className="w-full lg:w-[60%] flex items-center mt-6 lg:mt-0">
+      <div ref={Animation3Ref} className="w-full lg:w-[60%] flex items-center mt-6 lg:mt-0">
         <div className="w-full h-[90%] mx-4 md:mx-8 rounded-xl overflow-hidden shadow-lg">
           <img
             src={slides[current].image}

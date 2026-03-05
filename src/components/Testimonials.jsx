@@ -4,9 +4,7 @@ import React, { useRef } from "react";
 import person1 from "../assets/person1.jpg";
 import person2 from "../assets/person2.jpg";
 import person3 from "../assets/person3.jpg";
-import person4 from "../assets/person4.jpg";
-import person5 from "../assets/person5.jpg";
-import person6 from "../assets/person6.jpg";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
@@ -103,7 +101,7 @@ const Testimonials = () => {
         
         {/* Section Title */}
         <div className="mb-16">
-          <h2 ref={Animate1Ref} className="text-white font-semibold leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+          <h2 ref={Animate1Ref} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wide text-white">
             What Our <span className="text-[var(--primary-color)]"> Clients</span> Say
           </h2>
           

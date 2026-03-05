@@ -34,8 +34,8 @@ const Projects = () => {
 
       <div className="max-w-[1400px] mx-auto">
 
-        <h1 ref={AnimationRef} className="text-white text-[2.5rem] sm:text-[3rem] lg:text-[4.3rem] mb-15">
-          OUR LATEST PROJECTS
+        <h1 ref={AnimationRef} className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wide pb-14">
+          OUR LATEST <span className='text-[var(--primary-color)]'>PROJECTS</span>
         </h1>
 
       
